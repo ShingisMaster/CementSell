@@ -1,2 +1,3 @@
-public class OrderAdapter {
+public interface OrderAdapter {
+
 }

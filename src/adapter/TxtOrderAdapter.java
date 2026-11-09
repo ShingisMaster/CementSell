@@ -1,2 +1,2 @@
-public class TxtOrderAdapter {
+public class TxtOrderAdapter implements OrderAdapter{
 }

@@ -1,2 +1,7 @@
-public class HashOrderAdapter {
+
+
+public class HashOrderAdapter implements OrderAdapter {
+
+
+
 }
