@@ -6,9 +6,8 @@ import java.util.List;
 
 public class OrdersResultWriter {
 
-    public void writeToFile(List<BuyersOrdersTotal> orders) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter
-                ("/Users/maksimzdanov/Desktop/Обучение по  Java /Практики/module2/out/output.txt"))){
+    public void writeToFile(List<BuyersOrdersTotal> orders, String path) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))){
             for (BuyersOrdersTotal order : orders) {
                 writer.write(order.toString());
                 writer.newLine();

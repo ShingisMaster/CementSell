@@ -25,8 +25,9 @@ public class Main {
         List<BuyersOrdersTotal> ordersTotal = new ArrayList<>(agr.aggregateOrders(countedOrders));
 
         //Печать итогового списка в файл
+        String pathOut = "/Users/maksimzdanov/Desktop/Обучение по  Java /Практики/module2/out/output.txt";
         OrdersResultWriter writer = new OrdersResultWriter();
-        writer.writeToFile(ordersTotal);
+        writer.writeToFile(ordersTotal, pathOut);
 
 
         //Отладочные принты
