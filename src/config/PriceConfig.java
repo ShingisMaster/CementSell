@@ -30,6 +30,12 @@ public class PriceConfig {
         this.startDiscount = Integer.parseInt(properties.getProperty("price.startDiscount"));
         this.discountStep = Integer.parseInt(properties.getProperty("price.discountStep"));
 
+
+
+        if (basePrice.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Цена должна быть больше нуля");
+        }
+
         if (startDiscount < 0 || startDiscount > 100) {
             throw new IllegalArgumentException("Некорректная начальная скидка");
         }
