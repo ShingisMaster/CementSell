@@ -1,9 +1,11 @@
+import java.math.BigDecimal;
+
 public class CountedOrder {
     private final Order order;
-    private final double calculatedPrice;
+    private final BigDecimal calculatedPrice;
 
 
-    public CountedOrder (Order order, double calculatedPrice) {
+    public CountedOrder (Order order, BigDecimal calculatedPrice) {
         this.order = order;
         this.calculatedPrice = calculatedPrice;
     }
@@ -12,7 +14,7 @@ public class CountedOrder {
         return order;
     }
 
-    public double getCalculatedPrice() {
+    public BigDecimal getCalculatedPrice() {
         return calculatedPrice;
     }
 

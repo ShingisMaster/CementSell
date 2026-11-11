@@ -1,8 +1,10 @@
+import java.math.BigDecimal;
+
 public class BuyersOrdersTotal {
     private final String customerName;
-    private final Double totalPrice;
+    private final BigDecimal totalPrice;
 
-    public BuyersOrdersTotal(String customerName, Double totalPrice) {
+    public BuyersOrdersTotal(String customerName, BigDecimal totalPrice) {
         this.customerName = customerName;
         this.totalPrice = totalPrice;
     }
@@ -12,7 +14,7 @@ public class BuyersOrdersTotal {
         return customerName;
     }
 
-    public Double getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 

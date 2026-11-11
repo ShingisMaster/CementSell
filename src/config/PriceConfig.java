@@ -1,12 +1,13 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
 
 public class PriceConfig {
 
-    private final double basePrice;
+    private final BigDecimal basePrice;
     private final double startDiscount;
     private final double discountStep;
 
@@ -25,7 +26,7 @@ public class PriceConfig {
         }
 
 
-        this.basePrice = Integer.parseInt(properties.getProperty("price.basePricePerKg"));
+        this.basePrice = new BigDecimal(properties.getProperty("price.basePricePerKg"));
         this.startDiscount = Integer.parseInt(properties.getProperty("price.startDiscount"));
         this.discountStep = Integer.parseInt(properties.getProperty("price.discountStep"));
 
@@ -39,7 +40,7 @@ public class PriceConfig {
 
     }
 
-    public double getBasePrice() {
+    public BigDecimal getBasePrice() {
         return basePrice;
     }
 
