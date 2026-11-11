@@ -7,9 +7,18 @@ public class BuyersOrdersTotal {
         this.totalPrice = totalPrice;
     }
 
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
+
     @Override
     public String toString() {
-        return "customerName= " + customerName + '\'' + ", totalPrice= " + totalPrice + "\n";
+        return "customerName= " + customerName  + ", totalPrice= " + totalPrice;
     }
 
 }
