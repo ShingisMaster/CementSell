@@ -4,13 +4,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
 
-public class DiscountConfig {
+public class PriceConfig {
 
+    private final int basePrice;
     private final int startDiscount;
     private final int discountStep;
-    private final int minDiscount;
 
-    public DiscountConfig(String path) throws IOException {
+    public PriceConfig(String path) throws IOException {
 
         Properties properties = new Properties();
 
@@ -18,9 +18,9 @@ public class DiscountConfig {
         properties.load(reader);
         reader.close();
 
-        this.startDiscount = Integer.parseInt(properties.getProperty("discount.start"));
-        this.discountStep = Integer.parseInt(properties.getProperty("discount.step"));
-        this.minDiscount = Integer.parseInt(properties.getProperty("discount.min"));
+        this.basePrice = Integer.parseInt(properties.getProperty("price.basePrice"));
+        this.startDiscount = Integer.parseInt(properties.getProperty("price.startDiscount"));
+        this.discountStep = Integer.parseInt(properties.getProperty("price.discountStep"));
 
         if (startDiscount < 0 || startDiscount > 100) {
             throw new IllegalArgumentException("Некорректная начальная скидка");
@@ -30,13 +30,10 @@ public class DiscountConfig {
             throw new IllegalArgumentException("Шаг скидки должен быть больше 0");
         }
 
-        if (minDiscount < 0 || minDiscount > 100) {
-            throw new IllegalArgumentException("Некорректная минимальная скидка");
-        }
+    }
 
-        if (minDiscount > startDiscount) {
-            throw new IllegalArgumentException("Минимальная скидка не может превышать начальную");
-        }
+    public int getBasePrice() {
+        return basePrice;
     }
 
     public int getStartDiscount() {
@@ -45,10 +42,6 @@ public class DiscountConfig {
 
     public int getDiscountStep() {
         return discountStep;
-    }
-
-    public int getMinDiscount() {
-        return minDiscount;
     }
 
 
