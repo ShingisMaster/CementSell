@@ -24,6 +24,10 @@ public class Main {
         OrdersResultAggregator agr = new OrdersResultAggregator();
         List<BuyersOrdersTotal> ordersTotal = new ArrayList<>(agr.aggregateOrders(countedOrders));
 
+        //Печать итогового списка в файл
+        OrdersResultWriter writer = new OrdersResultWriter();
+        writer.writeToFile(ordersTotal);
+
 
         //Отладочные принты
 
