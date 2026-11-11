@@ -6,19 +6,26 @@ import java.util.Properties;
 
 public class PriceConfig {
 
-    private final int basePrice;
-    private final int startDiscount;
-    private final int discountStep;
+    private final double basePrice;
+    private final double startDiscount;
+    private final double discountStep;
 
-    public PriceConfig(String path) throws IOException {
+    public PriceConfig(String path) {
 
         Properties properties = new Properties();
 
-        BufferedReader reader = Files.newBufferedReader(Path.of(path));
-        properties.load(reader);
-        reader.close();
+        BufferedReader reader = null;
+        try {
+            reader = Files.newBufferedReader(Path.of(path));
+            properties.load(reader);
+            reader.close();
 
-        this.basePrice = Integer.parseInt(properties.getProperty("price.basePrice"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        this.basePrice = Integer.parseInt(properties.getProperty("price.basePricePerKg"));
         this.startDiscount = Integer.parseInt(properties.getProperty("price.startDiscount"));
         this.discountStep = Integer.parseInt(properties.getProperty("price.discountStep"));
 
@@ -32,15 +39,15 @@ public class PriceConfig {
 
     }
 
-    public int getBasePrice() {
+    public double getBasePrice() {
         return basePrice;
     }
 
-    public int getStartDiscount() {
+    public double getStartDiscount() {
         return startDiscount;
     }
 
-    public int getDiscountStep() {
+    public double getDiscountStep() {
         return discountStep;
     }
 

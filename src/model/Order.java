@@ -27,7 +27,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "date=" + time + ", customerName='" + buyer + '\'' + ", volume=" + amount + '}';
+        return "Order{" + "date=" + time + ", customerName='" + buyer + '\'' + ", volume=" + amount;
     }
 
 
