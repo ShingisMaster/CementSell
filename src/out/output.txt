@@ -1,0 +1,12 @@
+customerName= Recovery, totalPrice= 567000.0000000000
+customerName= Power Engineer, totalPrice= 3421400.0000000000
+customerName= Preparatory, totalPrice= 1284600.0000000000
+customerName= Pyramid, totalPrice= 656500.0000000000
+customerName= Fossil, totalPrice= 1372000.0000000000
+customerName= Mosque, totalPrice= 2484000.0000000000
+customerName= Atomic, totalPrice= 1000000.0000000000
+customerName= Electricity, totalPrice= 312800.0000000000
+customerName= Industrial, totalPrice= 792000.0000000000
+customerName= Carryover, totalPrice= 2818650.0000000000
+customerName= Resident, totalPrice= 561000.0000000000
+customerName= Ancillary, totalPrice= 3000000.0000000000
