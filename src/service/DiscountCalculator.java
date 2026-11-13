@@ -19,8 +19,8 @@ public class DiscountCalculator {
         List<CountedOrder> countedOrders = new ArrayList<>();
 
         BigDecimal price = config.getBasePrice();
-        BigDecimal discount = BigDecimal.valueOf(config.getStartDiscount());
-        BigDecimal discountStep = BigDecimal.valueOf(config.getDiscountStep());
+        BigDecimal discount = config.getStartDiscount();
+        BigDecimal discountStep = config.getDiscountStep();
 
         for (Order order : sortedOrders) {
 
