@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class TxtOrderAdapter implements OrderAdapter{
 
     @Override
-    public List<Order> read (String path,   List<Order> orders) {
+    public void read (String path,   List<Order> orders) {
 
         List<String> lines;
         try {
@@ -22,7 +22,6 @@ public class TxtOrderAdapter implements OrderAdapter{
             String[] parts = line.split(Pattern.quote("|"));
             orders.add(new Order(LocalDateTime.parse(parts[0]), parts[1], Integer.parseInt(parts[2])));
         }
-        return orders;
 
     }
 }

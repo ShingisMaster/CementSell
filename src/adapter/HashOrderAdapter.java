@@ -8,7 +8,7 @@ import java.util.List;
 public class HashOrderAdapter implements OrderAdapter {
 
     @Override
-    public List<Order> read (String path,   List<Order> orders) {
+    public void read (String path,   List<Order> orders) {
 
         List<String> lines;
         try {
@@ -24,7 +24,6 @@ public class HashOrderAdapter implements OrderAdapter {
 
         }
 
-        return orders;
     }
 
 }

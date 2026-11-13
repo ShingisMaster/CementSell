@@ -9,6 +9,7 @@ public class Main {
         String path1 = "src/resources/discount_day.txt";
         String path2 = "src/resources/discount_day_without_ext";
 
+
         //Чтение исходных файлов, запись данных о заказах
         OrderAdapter adapter1 = new TxtOrderAdapter();
         OrderAdapter adapter2 = new HashOrderAdapter();
