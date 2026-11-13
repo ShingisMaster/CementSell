@@ -9,7 +9,11 @@ public class Order {
     public Order(LocalDateTime time, String buyer, Integer amount) {
         this.time = time;
         this.buyer = buyer;
-        this.amount = amount;
+        if (amount == null || amount <= 0) {
+            throw new IllegalArgumentException("Количество заказанного товара должно быть больше нуля");
+        } else {
+            this.amount = amount;
+        }
     }
 
     public String getBuyer() {
