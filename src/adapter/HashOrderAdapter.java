@@ -8,9 +8,8 @@ import java.util.List;
 public class HashOrderAdapter implements OrderAdapter {
 
     @Override
-    public List<Order> read (String path) {
+    public List<Order> read (String path,   List<Order> orders) {
 
-        List<Order> orders = new ArrayList<>();
         List<String> lines;
         try {
             lines = Files.readAllLines(Path.of(path));

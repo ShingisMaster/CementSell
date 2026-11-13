@@ -9,16 +9,20 @@ public class Main {
         String path1 = "src/resources/discount_day.txt";
         String path2 = "src/resources/discount_day_without_ext";
 
-        //Чтение исходного файла, запись данных о заказах
+        //Чтение исходных файлов, запись данных о заказах
         OrderAdapter adapter1 = new TxtOrderAdapter();
-        List<Order> orders1 = adapter1.read(path1);
+        OrderAdapter adapter2 = new HashOrderAdapter();
+        List<Order> orders = new ArrayList<>();
+        adapter1.read(path1, orders);
+        adapter2.read(path2, orders);
+
 
         //Путь к файлу-конфигурации для задания цены, скидки и ее шага для заказов
         PriceConfig cfg = new PriceConfig("src/config/price.properties");
 
         //Чтение параметров из конфиг-файла, применение сортировки и скидки к списку заказов
         DiscountCalculator calculator = new DiscountCalculator(cfg);
-        List<CountedOrder> countedOrders = new ArrayList<>(calculator.countOrdersPrice(orders1));
+        List<CountedOrder> countedOrders = new ArrayList<>(calculator.countOrdersPrice(orders));
 
         //Агрегация списка заказов по имени покупателя, суммирование стоимости заказов
         OrdersResultAggregator agr = new OrdersResultAggregator();
@@ -34,7 +38,7 @@ public class Main {
 
         //Прочитанные исходники
         System.out.println("\nRaw orders:\n");
-        for (Order order : orders1) {
+        for (Order order : orders) {
             System.out.println(order + "\n");
         }
 
